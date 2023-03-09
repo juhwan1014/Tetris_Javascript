@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   const lTetromino = [
       [1, width+1, width*2+1, 2],
       [width, width+1, width+2, width*2+2],
-      [1, width+1, width*2+1, width*2],
+      [2, width+2, width*2+2, width*2+1],
       [width, width*2, width*2+1, width*2+2]
     ]
   
@@ -89,7 +89,7 @@ function undraw(){
         )
 }
 
-timerId = setInterval(moveDown, 1000)
+timerId = setInterval(moveDown, 5000)
 
 function moveDown(){
  undraw()
@@ -131,6 +131,19 @@ function moveRight(){
     currentPosition -= 1
   }  
   draw()
+}
+
+
+function rotate(){
+  undraw()
+  currentRotation ++
+  if(currentRotation === current.length){
+    currentRotation = 0
+  }
+  current = theTetrominoes[random][currentRotation]
+  
+  draw()
+
 }
  
 
