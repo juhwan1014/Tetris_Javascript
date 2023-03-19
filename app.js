@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   }
 
   for(let i = 0; i < 10; i++){
-    grid.innerHTML += '<div class="taken">2</div>'
+    grid.innerHTML += '<div class="taken"></div>'
   }
 
 
@@ -20,6 +20,13 @@ document.addEventListener('DOMContentLoaded', () =>{
     let timerId;
     let nextRandom =0;
     let score = 0
+    const colors = [
+      'orange',
+      'red',
+      'purple',
+      'green',
+      'blue'
+    ]
 
 
   
@@ -77,6 +84,11 @@ document.addEventListener('DOMContentLoaded', () =>{
 
 function control(e){
  
+if(scoreDisplay.innerHTML === 'end'){
+  alert("Game Over!!!")
+  return
+}
+
    if(e.keyCode === 37){
     moveLeft()
    } else if(e.keyCode === 38){
@@ -96,14 +108,18 @@ document.addEventListener('keyup', control)
 
  function draw(){
   //// [10,11,12,21] .  70        [80,81,82,91]
-    current.forEach(index => 
+    current.forEach(index => {
         squares[currentPosition + index].classList.add('tetromino')
+        squares[currentPosition + index].style.backgroundColor = colors[random]
+    }
         )
  }
 
 function undraw(){
-    current.forEach(index => 
+    current.forEach(index => {
         squares[currentPosition + index].classList.remove('tetromino')
+        squares[currentPosition + index].style.backgroundColor = ''
+    }
         )
 }
 
@@ -206,7 +222,7 @@ function rotate(){
 
 const displaySquares = document.querySelectorAll('.mini-grid div')
 let displayWidth = 4;
-let displayIndex = 0;
+let displayIndex = 1;
 
 const upNextTetrominoes = [
   [1, displayWidth+1, displayWidth*2+1, 2],
@@ -220,12 +236,16 @@ const upNextTetrominoes = [
 
 function displayShape(){
 
-  displaySquares.forEach( index => 
+  displaySquares.forEach( index => {
     index.classList.remove('tetromino')
+    index.style.backgroundColor = '' 
+  }
   )
 
-  upNextTetrominoes[nextRandom].forEach(index => 
+  upNextTetrominoes[nextRandom].forEach(index => {
     displaySquares[displayIndex + index].classList.add('tetromino')
+    displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
+  }
     )
 }
 
@@ -242,6 +262,7 @@ function diss(){
           row.forEach(index => {
               squares[index].classList.remove('taken')
               squares[index].classList.remove('tetromino')
+              squares[index].style.backgroundColor = ''
           })
 
           const squaresRemoved = squares.splice(i, width)
