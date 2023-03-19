@@ -87,6 +87,8 @@ function control(e){
 if(scoreDisplay.innerHTML === 'end'){
   alert("Game Over!!!")
   return
+} else if(!timerId){
+  return
 }
 
    if(e.keyCode === 37){
