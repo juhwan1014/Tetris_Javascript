@@ -6,9 +6,9 @@
 
 * structure
   
-  function control -> Keyboard recognition
+  ###function control -> Keyboard recognition
   
-  function draw -> Draw tetromino
+  ###function draw -> Draw tetromino
   
   function undraw -> Undraw tetromino
   
