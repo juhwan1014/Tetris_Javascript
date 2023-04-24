@@ -4,6 +4,9 @@
 
 * Understanding of basic JavaScript syntax and the interaction of various functions.
 
+## Tetris URL
+https://tetris-juhwan1014.netlify.app/
+
 ## structure
   
   ### function control 
