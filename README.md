@@ -1,4 +1,4 @@
-# Tetris_Javascript
+# Tetris_JavaScript
 
 * JavaScript-based game programming.
 
