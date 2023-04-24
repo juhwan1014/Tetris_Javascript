@@ -15,12 +15,13 @@ h3{
     margin: 40px auto;
     padding: 10px;
     border-radius: 30px;
-    border: solid red;
+    border: solid black;
 }
 .container{
-    margin-top: 30px;
+    margin-top: 80px;
     display: flex;
     justify-content: center;
+    
     
 }
 
